@@ -8,9 +8,9 @@ client.on('ready', () => {
 
 const isGonk = (message, i = 0) => {
     const gonk = 'gonk';
-    for (let j = 0; i < gonk.length && j < message.length; ++j)
-        if (gonk[i] == message[j]) ++i;
-    return i == gonk.length;
+    for (let j = 0; i < gonk.length && j < message.length; j++)
+        if (gonk[i] === message[j]) i++;
+    return i === gonk.length;
 };
 
 client.on('message', (message) => {
