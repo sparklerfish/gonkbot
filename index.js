@@ -1,4 +1,4 @@
-const config = require(''./secret.json');
+const config = require('./secret.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
