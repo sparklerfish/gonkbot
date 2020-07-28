@@ -9,9 +9,9 @@ client.on('ready', () => {
 const isGonk = (message, i = 0) => {
     const gonk = 'gonk';
     for (let j = 0; i < gonk.length && j < message.length; j++) {
-        if (message[j] === ":" && message[j + 1] === "/" && message[j + 2] === "/") {
-            while (message[j] !== " ") continue;
-        }
+        // if (message[j] === ":" && message[j + 1] === "/" && message[j + 2] === "/") {
+        //     while (message[j] !== " ") continue;
+        // }
 
         if (gonk[i] === message[j]) i++;
     }
