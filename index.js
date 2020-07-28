@@ -11,7 +11,10 @@ const isGonk = (message) => {
     const gonk = 'gonk';
     while (i < gonk.length && j < message.length) {
         if (message.slice(j, j + 4) === "http") {
-            while (message[j] !== " ") j++;
+            while (true) {
+                j++
+                if (message[j] === " ") break;
+            };
         }
 
         if (gonk[i] === message[j]) i++;
