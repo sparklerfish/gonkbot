@@ -12,11 +12,10 @@ const isGonk = (message) => {
     while (i < gonk.length && j < message.length) {
         if (message.slice(j, j + 4) === "http") {
             while (true) {
-                j++
+                j++;
                 if (message[j] === " ") break;
             };
         }
-
         if (gonk[i] === message[j]) i++;
         j++;
     }
@@ -24,7 +23,6 @@ const isGonk = (message) => {
 };
 
 client.on('message', (message) => {
-
     const formattedMessage = message.content.toLowerCase();
     if (isGonk(formattedMessage) && message.author.id !== client.user.id) {
         message.channel.send('GONK!');
