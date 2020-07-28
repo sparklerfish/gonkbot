@@ -6,14 +6,16 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
 })
 
-const isGonk = (message, i = 0) => {
+const isGonk = (message) => {
+    let i = 0, j = 0;
     const gonk = 'gonk';
-    for (let j = 0; i < gonk.length && j < message.length; j++) {
-        // if (message[j] === ":" && message[j + 1] === "/" && message[j + 2] === "/") {
-        //     while (message[j] !== " ") continue;
-        // }
+    while (i < gonk.length && j < message.length) {
+        if (message.slice(j, j + 4) === "http") {
+            while (message[j] !== " ") j++;
+        }
 
         if (gonk[i] === message[j]) i++;
+        j++;
     }
     return i === gonk.length;
 };
