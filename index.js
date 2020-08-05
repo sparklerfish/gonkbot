@@ -14,6 +14,7 @@ const isGonk = (message) => {
             while (true) {
                 j++;
                 if (message[j] === " ") break;
+                if (j === message.length) break;
             };
         }
         if (gonk[i] === message[j]) i++;
