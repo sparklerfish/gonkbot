@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
-})
+});
 
 const isGonk = (message) => {
     let i = 0, j = 0;
@@ -21,7 +21,7 @@ const removeUrl = (string) => `${string}`.replace(/http\/?[^(\s|$)]+(\s|$)/g, ''
 const formatMessage = (message) => {
     message = message.toLowerCase();
     return removeUrl(message);
-}
+};
 
 client.on('message', (message) => {
     const formattedMessage = formatMessage(message.content);
