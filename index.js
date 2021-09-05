@@ -10,21 +10,21 @@ const isGonk = (message) => {
     let i = 0, j = 0;
     const gonk = 'gonk';
     while (i < gonk.length && j < message.length) {
-        if (message.slice(j, j + 4) === "http") {
-            while (true) {
-                j++;
-                if (message[j] === " ") break;
-                if (j === message.length) break;
-            };
-        }
         if (gonk[i] === message[j]) i++;
         j++;
     }
     return i === gonk.length;
 };
 
+const removeUrl = (string) => `${string}`.replace(/http\/?[^(\s|$)]+(\s|$)/g, ''); 
+
+const formatMessage = (message) => {
+    message = message.toLowerCase();
+    return removeUrl(message);
+}
+
 client.on('message', (message) => {
-    const formattedMessage = message.content.toLowerCase();
+    const formattedMessage = formatMessage(message.content);
     if (isGonk(formattedMessage) && message.author.id !== client.user.id) {
         message.channel.send('GONK!');
     }
